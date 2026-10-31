@@ -1,0 +1,120 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>ColorPop - Online Photo Editor</title>
+<style>
+  * { box-sizing: border-box; }
+  body { margin:0; font-family: Arial, sans-serif; background:#fff9f4; color:#29243d; }
+  header { background:#ffffff; padding:17px 5%; border-bottom:4px solid #ffbd59; }
+  .logo { display:inline-block; font-size:27px; font-weight:900; color:#7147d7; letter-spacing:-1px; }
+  .logo span { color:#ff6b6b; }
+  nav { float:right; margin-top:7px; }
+  nav a { text-decoration:none; color:#51466c; margin-left:24px; font-size:14px; font-weight:bold; }
+  .hero { padding:52px 7%; min-height:390px; background:linear-gradient(115deg,#ffe0e8 0%,#fff0c9 48%,#d9f5ed 100%); overflow:hidden; }
+  .hero-copy { width:52%; }
+  .tag { display:inline-block; background:#fff; color:#e15c85; padding:8px 13px; border-radius:20px; font-size:12px; font-weight:bold; }
+  h1 { color:#34235d; font-size:47px; line-height:1.08; margin:18px 0 12px; }
+  .hero p { color:#655b76; font-size:15px; line-height:1.7; max-width:470px; }
+  button { border:0; border-radius:8px; padding:13px 19px; color:white; background:#7950df; font-weight:bold; cursor:pointer; box-shadow:0 5px 0 #5836b5; }
+  button:hover { background:#6038c8; }
+  .preview { float:right; width:39%; height:265px; margin-top:-255px; margin-right:1%; border:7px solid white; border-radius:18px; background:linear-gradient(135deg,#ff9a9e,#fad0c4 45%,#a1c4fd); display:flex; align-items:center; justify-content:center; text-align:center; color:#fff; font-size:23px; font-weight:bold; box-shadow:0 15px 35px #8a5b8a33; }
+  .section { padding:42px 7%; }
+  .section h2 { color:#39275f; font-size:29px; margin:0 0 8px; }
+  .sub { color:#82788f; margin:0 0 23px; font-size:14px; }
+  .tools { display:flex; gap:13px; flex-wrap:wrap; }
+  .tool { background:#fff; border:2px solid #f0e8ff; border-radius:13px; padding:17px 18px; width:145px; text-align:center; color:#5b438d; font-weight:bold; box-shadow:0 5px 13px #57417a0c; }
+  .tool:nth-child(2) { background:#fff0d7; border-color:#ffd99a; }
+  .tool:nth-child(3) { background:#e4f8f1; border-color:#b8ead9; }
+  .tool:nth-child(4) { background:#ffe8ef; border-color:#ffc6d6; }
+  .tool:nth-child(5) { background:#e9e4ff; border-color:#d2c7ff; }
+  .cards { display:flex; gap:15px; }
+  .card { width:33.33%; padding:20px; border-radius:14px; min-height:155px; background:#e9e4ff; color:#55427f; }
+  .card:nth-child(2) { background:#ffe8d6; color:#8a5734; }
+  .card:nth-child(3) { background:#dcf5eb; color:#36745e; }
+  .card h3 { font-size:18px; margin:5px 0 10px; }
+  .card p { font-size:13px; line-height:1.6; }
+  .pricing { background:#f0eaff; }
+  .price-box { display:inline-block; background:white; border:2px solid #ded2ff; border-radius:15px; padding:20px; width:42%; margin:8px 12px 0 0; vertical-align:top; box-shadow:0 8px 20px #5d43a014; }
+  .price-box:nth-of-type(2) { border-color:#ffc96f; }
+  .price-box h3 { color:#6744c2; }
+  .price-box h2 { color:#ff6b6b; }
+  footer { background:#352456; color:#eee5ff; padding:20px 7%; font-size:12px; }
+  @media(max-width:680px) {
+    header { padding:15px 5%; }
+    nav { float:none; margin-top:15px; }
+    nav a { margin:0 12px 0 0; }
+    .hero { padding:35px 6%; }
+    .hero-copy { width:100%; }
+    h1 { font-size:36px; }
+    .preview { float:none; width:100%; height:190px; margin:28px 0 0; }
+    .cards { display:block; }
+    .card { width:100%; margin:10px 0; }
+    .price-box { width:100%; margin:10px 0; }
+  }
+</style>
+</head>
+<body>
+<header>
+  <div class="logo">Color<span>Pop</span></div>
+  <nav>
+    <a href="#home">Home</a>
+    <a href="#tools">Edit tools</a>
+    <a href="#plans">Pricing</a>
+    <a href="#about">About</a>
+  </nav>
+</header>
+
+<main>
+<section class="hero" id="home">
+  <div class="hero-copy">
+    <span class="tag">CREATIVITY STARTS HERE</span>
+    <h1>Make your photos pop!</h1>
+    <p>Give your favourite pictures a fresh look. Add colour, try fun filters and make every moment worth sharing with ColorPop photo editor.</p>
+    <button onclick="document.getElementById('photoUpload').click()">Upload a photo</button>
+    <input id="photoUpload" type="file" accept="image/*" hidden>
+  </div>
+  <div class="preview">Your photo<br>preview goes here</div>
+</section>
+
+<section class="section" id="tools">
+  <h2>Play with your photos</h2>
+  <p class="sub">Pick a tool and give your image a little magic.</p>
+  <div class="tools">
+    <div class="tool">✂ Crop</div>
+    <div class="tool">↔ Resize</div>
+    <div class="tool">☀ Brightness</div>
+    <div class="tool">✦ Filters</div>
+    <div class="tool">▧ Background</div>
+  </div>
+</section>
+
+<section class="section" id="about">
+  <h2>Why ColorPop?</h2>
+  <p class="sub">A few reasons to make us your creative corner.</p>
+  <div class="cards">
+    <div class="card"><h3>Easy editing</h3><p>Simple tools help you make quick changes without a complicated workflow.</p></div>
+    <div class="card"><h3>Fun effects</h3><p>Try different looks and add personality to your favourite pictures.</p></div>
+    <div class="card"><h3>Share anywhere</h3><p>Save your pictures and share your creations with friends and family.</p></div>
+  </div>
+</section>
+
+<section class="section pricing" id="plans">
+  <h2>Pick your plan</h2>
+  <p class="sub">Start free and explore more with ColorPop.</p>
+  <div class="price-box">
+    <h3>Starter</h3><h2>₹0</h2>
+    <p>Basic editing tools</p><p>Standard image download</p>
+    <button onclick="alert('This is a visual prototype. Plan selection is not connected.')">Try for free</button>
+  </div>
+  <div class="price-box">
+    <h3>ColorPop Plus</h3><h2>₹299 / month</h2>
+    <p>More creative tools</p><p>High quality download</p>
+    <button onclick="alert('This is a visual prototype. Plan selection is not connected.')">Choose Plus</button>
+  </div>
+</section>
+</main>
+<footer><p>ColorPop © 2026 &nbsp; | &nbsp; Contact &nbsp; | &nbsp; Privacy &nbsp; | &nbsp; Terms</p></footer>
+</body>
+</html>
